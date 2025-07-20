@@ -10,13 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from pathlib import Path
-
-import environ
 import os
+from pathlib import Path
+import environ
 
+# Define BASE_DIR first
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Initialize environment variables
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 
 DATABASES = {
     'default': {
